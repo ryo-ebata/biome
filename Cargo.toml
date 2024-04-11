@@ -162,6 +162,7 @@ ignore             = "0.4.21"
 indexmap           = { version = "2.2.6", features = ["serde"] }
 insta              = "1.38.0"
 lazy_static        = "1.4.0"
+natord             = "1.0.9"
 oxc_resolver       = "1.7.0"
 proc-macro2        = "1.0.81"
 quickcheck         = "1.0.3"
@@ -183,7 +184,6 @@ tracing            = { version = "0.1.40", default-features = false, features = 
 tracing-subscriber = "0.3.18"
 unicode-bom        = "2.0.3"
 unicode-width      = "0.1.12"
-
 [profile.dev.package.biome_wasm]
 debug     = true
 opt-level = "s"

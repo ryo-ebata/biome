@@ -2150,6 +2150,7 @@ export type Category =
 	| "lint/suspicious/useIsArray"
 	| "lint/suspicious/useNamespaceKeyword"
 	| "lint/suspicious/useValidTypeof"
+	| "assists/nursery/useSortedKeys"
 	| "files/missingHandler"
 	| "format"
 	| "check"

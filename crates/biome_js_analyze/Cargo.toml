@@ -27,7 +27,7 @@ biome_string_case        = { workspace = true }
 biome_suppression        = { workspace = true }
 biome_unicode_table      = { workspace = true }
 lazy_static              = { workspace = true }
-natord                   = "1.0.9"
+natord                   = { workspace = true }
 roaring                  = "0.10.4"
 rustc-hash               = { workspace = true }
 schemars                 = { workspace = true, optional = true }

@@ -1,6 +1,6 @@
 //! Generated file, do not edit by hand, see `xtask/codegen`
 
-use biome_analyze::declare_group;
+use biome_analyze::declare_lint_group;
 
 pub mod no_color_invalid_hex;
 pub mod no_css_empty_block;
@@ -15,7 +15,7 @@ pub mod no_unknown_unit;
 pub mod no_unmatchable_anb_selector;
 pub mod use_generic_font_names;
 
-declare_group! {
+declare_lint_group! {
     pub Nursery {
         name : "nursery" ,
         rules : [

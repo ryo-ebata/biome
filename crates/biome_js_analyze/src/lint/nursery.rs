@@ -1,6 +1,6 @@
 //! Generated file, do not edit by hand, see `xtask/codegen`
 
-use biome_analyze::declare_group;
+use biome_analyze::declare_lint_group;
 
 pub mod no_console;
 pub mod no_constant_math_min_max_clamp;
@@ -23,7 +23,7 @@ pub mod use_focusable_interactive;
 pub mod use_import_restrictions;
 pub mod use_sorted_classes;
 
-declare_group! {
+declare_lint_group! {
     pub Nursery {
         name : "nursery" ,
         rules : [

@@ -992,7 +992,7 @@ export interface Nursery {
 	/**
 	 * Disallow variables from evolving into any type through reassignments.
 	 */
-	noEvolvingAny?: RuleConfiguration_for_Null;
+	noEvolvingTypes?: RuleConfiguration_for_Null;
 	/**
 	 * Disallow to use unnecessary callback on flatMap.
 	 */
@@ -2281,7 +2281,7 @@ export type Category =
 	| "lint/nursery/noDuplicateFontNames"
 	| "lint/nursery/noDuplicateJsonKeys"
 	| "lint/nursery/noDuplicateSelectorsKeyframeBlock"
-	| "lint/nursery/noEvolvingAny"
+	| "lint/nursery/noEvolvingTypes"
 	| "lint/nursery/noFlatMapIdentity"
 	| "lint/nursery/noImportantInKeyframe"
 	| "lint/nursery/noInvalidPositionAtImportRule"

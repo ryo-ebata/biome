@@ -3333,7 +3333,7 @@ pub struct Nursery {
     pub no_empty_block: Option<RuleConfiguration<NoEmptyBlock>>,
     #[doc = "Disallow variables from evolving into any type through reassignments."]
     #[serde(skip_serializing_if = "Option::is_none")]
-    pub no_evolving_any: Option<RuleConfiguration<NoEvolvingAny>>,
+    pub no_evolving_types: Option<RuleConfiguration<NoEvolvingTypes>>,
     #[doc = "Disallow to use unnecessary callback on flatMap."]
     #[serde(skip_serializing_if = "Option::is_none")]
     pub no_flat_map_identity: Option<RuleFixConfiguration<NoFlatMapIdentity>>,
@@ -3462,7 +3462,7 @@ impl Nursery {
         "noDuplicateJsonKeys",
         "noDuplicateSelectorsKeyframeBlock",
         "noEmptyBlock",
-        "noEvolvingAny",
+        "noEvolvingTypes",
         "noFlatMapIdentity",
         "noImportantInKeyframe",
         "noInvalidPositionAtImportRule",
@@ -3504,7 +3504,6 @@ impl Nursery {
         "noDuplicateJsonKeys",
         "noDuplicateSelectorsKeyframeBlock",
         "noEmptyBlock",
-        "noEvolvingAny",
         "noFlatMapIdentity",
         "noImportantInKeyframe",
         "noInvalidPositionAtImportRule",
@@ -3524,7 +3523,6 @@ impl Nursery {
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[6]),
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[7]),
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[8]),
-        RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[9]),
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[10]),
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[11]),
         RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[12]),
@@ -3640,7 +3638,7 @@ impl Nursery {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[8]));
             }
         }
-        if let Some(rule) = self.no_evolving_any.as_ref() {
+        if let Some(rule) = self.no_evolving_types.as_ref() {
             if rule.is_enabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[9]));
             }
@@ -3854,7 +3852,7 @@ impl Nursery {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[8]));
             }
         }
-        if let Some(rule) = self.no_evolving_any.as_ref() {
+        if let Some(rule) = self.no_evolving_types.as_ref() {
             if rule.is_disabled() {
                 index_set.insert(RuleFilter::Rule(Self::GROUP_NAME, Self::GROUP_RULES[9]));
             }
@@ -4091,8 +4089,8 @@ impl Nursery {
                 .no_empty_block
                 .as_ref()
                 .map(|conf| (conf.level(), conf.get_options())),
-            "noEvolvingAny" => self
-                .no_evolving_any
+            "noEvolvingTypes" => self
+                .no_evolving_types
                 .as_ref()
                 .map(|conf| (conf.level(), conf.get_options())),
             "noFlatMapIdentity" => self
@@ -4273,8 +4271,8 @@ impl Nursery {
                     rule_conf.set_level(severity);
                 }
             }
-            "noEvolvingAny" => {
-                if let Some(rule_conf) = &mut self.no_evolving_any {
+            "noEvolvingTypes" => {
+                if let Some(rule_conf) = &mut self.no_evolving_types {
                     rule_conf.set_level(severity);
                 }
             }
